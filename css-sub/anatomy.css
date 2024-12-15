@@ -1,0 +1,116 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.nav-menu li {
+    display: inline;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.nav-menu a:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Question Section */
+.questions-container, .answers-section {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h2 {
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    color: #4CAF50;
+}
+
+.question-card, .answer-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.question-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.vote-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.vote-controls button {
+    background: #ddd;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    transition: background 0.3s ease;
+}
+
+.vote-controls button:hover {
+    background: #bbb;
+}
+
+.vote-count {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* Answer Section */
+.answer-container .answer-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+}

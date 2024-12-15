@@ -1,0 +1,220 @@
+/* Header General Styles */
+header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Header Top Section */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f8f9fa; /* Light background */
+    border-bottom: 2px solid #e0e0e0; /* Subtle divider */
+    flex-wrap: wrap; /* Ensures elements stack properly on smaller screens */
+}
+
+/* Logo as Primary Element */
+.site-logo {
+    width: 15vw; /* Makes logo size flexible across screens */
+    height: auto;
+    object-fit: contain; /* Ensures full visibility */
+    max-width: 200px; /* Maximum size for logo */
+    margin-right: 2rem; /* Adds space between the logo and navigation links */
+}
+
+/* Navigation Links */
+.header-nav {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap; /* Allows the links to wrap on smaller screens */
+    justify-content: flex-start; /* Align links to the left or center */
+    width: 100%; /* Ensure it takes up the full width of the header */
+}
+
+/* Navigation Link Hover Effect with Bigger Box */
+.nav-link {
+    color: #0f172a;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.5rem 0.8rem; /* Adds extra padding around the text */
+    transition: all 0.3s ease; /* Smooth hover effect */
+    position: relative; /* Needed for the box-shadow effect */
+}
+
+/* Hover Effect */
+.nav-link:hover {
+    color: #1d4ed8; /* Change text color on hover */
+    background-color: rgba(0, 0, 0, 0.05); /* Subtle background */
+    box-shadow: 0px 0px 8px 2px rgba(128, 128, 128, 0.5); /* Grey glow */
+    border-radius: 8px; /* Rounded edges for the hover box */
+    padding: 0.6rem 1rem; /* Slightly increase padding on hover to make the box bigger */
+    transform: scale(1.1); /* Slightly enlarges the link */
+}
+
+/* Active (Click) Effect */
+.nav-link:active {
+    text-decoration: underline; /* Underline when clicked */
+}
+
+/* Login Button */
+.login-btn {
+    background-color: #2563eb;
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 30px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 1rem; /* Space from the navigation links */
+}
+
+.login-btn:hover {
+    background-color: #1e40af;
+    transform: scale(1.05);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Banner Section */
+.header-banner {
+    position: relative;
+    width: 100%;
+    height: 60vh; /* Sets a responsive height for larger devices */
+    min-height: 300px; /* Ensures a minimum height for smaller devices */
+    overflow: hidden;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #2563eb 0%, #1e3a8a 100%);
+    /* Gradient as a fallback background if image doesn't load */
+}
+
+/* Banner Image */
+.banner-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Ensures the image covers the width */
+    height: 100%; /* Ensures the image covers the height */
+    object-fit: cover; /* Maintains image aspect ratio and covers entire banner */
+    z-index: 1; /* Keeps the image behind the overlay */
+    filter: brightness(80%);
+    transition: filter 0.3s ease; /* Add a smooth effect on hover */
+}
+
+.banner-img:hover {
+    filter: brightness(100%);
+}
+
+/* Banner Overlay Content */
+.banner-overlay {
+    position: relative;
+    z-index: 2; /* Ensures content stays above the image */
+    text-align: center;
+    color: #ffffff;
+    padding: 1rem;
+}
+
+.banner-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.banner-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.banner-button {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: #10b981;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.banner-button:hover {
+    background-color: #059669;
+    transform: scale(1.05);
+}
+
+/* Media Queries for Mobile and Tablet */
+@media (max-width: 768px) {
+    .header-nav {
+        gap: 1rem; /* Decrease gap between navigation links */
+        justify-content: space-between; /* Space out the links on small screens */
+        width: 100%;
+    }
+    
+    .nav-link {
+        font-size: 0.9rem;
+    }
+
+    .login-btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .site-logo {
+        width: 30vw; /* Makes logo smaller for mobile devices */
+    }
+
+    .header-top {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .banner-title {
+        font-size: 2.5rem;
+    }
+
+    .banner-subtitle {
+        font-size: 1rem;
+    }
+
+    .banner-button {
+        padding: 0.6rem 1.5rem;
+    }
+}
+
+/* Media Queries for Small Screens (Mobile) */
+@media (max-width: 480px) {
+    .header-nav {
+        gap: 0.5rem;
+        flex-direction: column;
+    }
+
+    .nav-link {
+        font-size: 0.8rem;
+    }
+
+    .login-btn {
+        width: 100%; /* Make login button take full width */
+        padding: 0.8rem 0;
+        font-size: 1.1rem;
+        margin-top: 0.5rem;
+    }
+
+    .site-logo {
+        width: 40vw; /* Further reduce logo size on very small screens */
+    }
+
+    .header-banner {
+        height: 50vh;
+    }
+}

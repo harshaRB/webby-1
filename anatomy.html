@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anatomy Q&A</title>
+    <link rel="stylesheet" href="/css-sub/anatomy.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/header.css">
+</head>
+<body>
+    <div class="header-top">
+        <div class="header-left">
+            <img src="/public/logo-for-website.jpg" alt="MEDDIT Logo" class="site-logo">
+        </div>
+        <nav class="header-nav">
+            <a href="/index.html" class="nav-link">Home</a>
+            <a href="#" class="nav-link">About Us</a>
+            <a href="#" class="nav-link">Contact</a>
+            <a href="login/login.html" class="login-btn">Login</a> <!-- Login Button -->
+        </nav>
+    </div>
+    <header>
+        <div class="header-container">
+            <div class="search-filter">
+                <input type="text" placeholder="Search questions..." class="search-bar" id="search-query" name="search-query">
+                <label for="filter-dropdown">Filter by Topic:</label>
+<select id="filter-dropdown" class="filter-dropdown">
+    <option value="all">All Topics</option>
+    <option value="head-neck">Head and Neck</option>
+    <option value="upper-limb">Upper Limb</option>
+    <option value="thorax">Thorax</option>
+</select>
+            </div>
+        </div>
+    </header>
+
+    <!-- Questions Section -->
+    <main>
+                <!-- Question Section -->
+                <div class="questions-container" id="questions">
+                    <h2>Questions</h2>
+                    <!-- Question Cards -->
+                    <div class="question-card" data-id="1" data-text="What is the clinical significance of the Circle of Willis?">
+                        <div class="vote-controls">
+                            <button class="upvote-btn" type="button">⬆</button>
+                            <span class="vote-count">15</span>
+                            <button class="downvote-btn" type="button">⬇</button>
+                        </div>
+                        <div class="question-content">
+                            <p class="question-text">What is the clinical significance of the Circle of Willis?</p>
+                            <button class="view-answers-btn" data-question-id="1">View Answers</button>
+                        </div>
+                    </div>
+                    <div class="question-card" data-id="2" data-text="How does the brachial plexus relate to arm injuries?">
+                        <div class="vote-controls">
+                            <button class="upvote-btn" type="button">⬆</button>
+                            <span class="vote-count">12</span>
+                            <button class="downvote-btn" type="button">⬇</button>
+                        </div>
+                        <div class="question-content">
+                            <p class="question-text">How does the brachial plexus relate to arm injuries?</p>
+                            <button class="view-answers-btn" data-question-id="2">View Answers</button>
+
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Answers Section -->
+                <div class="answers-section" id="answers">
+                    <h2>Answers for: <span class="current-question">Select a Question</span></h2>
+                    <div class="answer-container">
+                        <!-- Answers will be dynamically loaded here -->
+                    </div>
+                </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+         <!-- Logo and Tagline Section -->
+         <div class="footer-logo">
+            <img src="/public/logo-for-website.jpg" alt="MEDDIT Logo" class="footer-logo-img">
+            <p class="footer-tagline">
+                Empowering MBBS students with expertly curated answers to college-level questions.
+            </p>
+        </div>
+    
+        <!-- Navigation Links Section -->
+        <div class="footer-links">
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Updates</a></li>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="#">Account Deletion</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Connect With Us</h3>
+                <ul>
+                    <li><a href="harsharbsbr@gmail.com">Email Us</a></li>
+                    <li><a href="#">Talk to a Counselor</a></li>
+                </ul>
+            </div>
+        </div>
+    
+        <!-- Privacy and Terms Section -->
+        <div class="footer-privacy">
+            <p>
+                <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a>
+            </p>
+            <p>&copy; 2024 Facer.com. All rights reserved.</p>
+        </div>>
+    </footer>
+
+    <script src="anatomy.js"></script>
+</body>
+</html>

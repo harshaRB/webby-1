@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <link rel="stylesheet" href="/login/login.css">
+    <link rel="stylesheet" href="/css/header.css">
+    
+</head>
+<header>
+    <div class="header-top">
+        <div class="header-left">
+            <img src="/public/logo-for-website.jpg" alt="MEDDIT Logo" class="site-logo">
+        </div>
+        <nav class="header-nav">
+            <a href="/index.html" class="nav-link">Home</a>
+            <a href="#" class="nav-link">About Us</a>
+            <a href="#" class="nav-link">Contact</a>
+        </nav>
+    </div>
+</header>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form id="loginForm">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <div id="userInfo" class="hidden">
+            <p>Welcome! Your unique ID is: <span id="userID"></span></p>
+            <button id="showBookmarks">Show My Bookmarks</button>
+            <div id="bookmarksList" class="hidden">
+                <h3>Your Bookmarked Questions:</h3>
+                <ul id="bookmarks"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="/login/login.js"></script>
+</body>
+</html>
+
