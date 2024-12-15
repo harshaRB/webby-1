@@ -4,11 +4,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initialize answersData from localStorage
     let answersData = loadVotesFromStorage(); 
 
-    // Function to load data from localStorage (if available)
     function loadVotesFromStorage() {
         try {
             const storedData = localStorage.getItem("answersData");
             if (storedData) {
+                console.log("Loaded from localStorage:", storedData);
                 return JSON.parse(storedData);
             }
         } catch (error) {
@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         return {}; // Return empty object if there's an error or no stored data
     }
+    
 
     // Function to save data to localStorage
     function saveVotesToStorage() {
@@ -29,13 +30,13 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to show answers for a specific question
     function showAnswers(questionId) {
         console.log("Showing answers for question " + questionId);
-
+    
         // Dynamically load answers for the selected question
         document.querySelector(".current-question").textContent = `Answers for Question ${questionId}`;
-
+    
         const answersSection = document.querySelector(".answer-container");
         answersSection.innerHTML = ''; // Clear existing answers
-
+    
         // Get answers for the specific question
         const answers = answersData[questionId] || [];
         if (answers.length > 0) {
@@ -60,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
             answersSection.appendChild(noAnswersMessage);
         }
     }
+    
 
     // Event listener for "View Answers" buttons
     document.querySelectorAll('.view-answers-btn').forEach(button => {
@@ -174,8 +176,14 @@ document.addEventListener('DOMContentLoaded', function () {
         2: [
             { id: 1, text: "The brachial plexus is crucial for motor and sensory innervation of the upper limbs.", votes: 4 },
             { id: 2, text: "Injuries to the brachial plexus can lead to conditions like Erb's palsy.", votes: 2 }
+        ],
+        3: [
+            { id: 1, text: "The clavipectoral fascia is getting ready in our kitchen", votes: 1},
+            { id: 2, text: "The testing is being done", votes: 2},
+            { id: 3, text: "The test for the third answers id done", votes: 3}
         ]
     };
+    
 
     // Initialize the answersData with example data (if it's empty)
     if (Object.keys(answersData).length === 0) {
