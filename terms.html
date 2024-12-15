@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms and Conditions | Facer</title>
     <style>
+        /* General Reset */
         * {
             margin: 0;
             padding: 0;
@@ -12,75 +13,156 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to right, #6a11cb, #2575fc);
+            font-family: 'Poppins', sans-serif; /* Clean, modern font */
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
             color: #fff;
-            line-height: 1.6;
+            line-height: 1.7;
+            padding: 0;
+            margin: 0;
         }
 
+        /* Header */
         header {
-            background: #333;
-            padding: 20px 0;
+            background: #1e1e1e;
+            padding: 30px 0;
             text-align: center;
-            color: white;
-            font-size: 2em;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
         }
 
+        header h1 {
+            font-size: 3em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: -webkit-linear-gradient(#2575fc, #ff6347);
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: gradient-animation 3s linear infinite;
+        }
+
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Section */
         section {
             padding: 60px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
         }
 
         h2 {
             font-size: 2.5em;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            background: linear-gradient(90deg, #ff6347, #2575fc);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        h2:hover {
+            transform: scale(1.05);
         }
 
         p {
             font-size: 1.1em;
-            line-height: 1.7;
+            line-height: 1.8;
+            color: #e0e0e0;
+            margin-bottom: 25px;
+        }
+
+        ul {
+            margin-left: 20px;
+            font-size: 1.1em;
             color: #d3d3d3;
-            margin-bottom: 30px;
         }
 
-        .highlight {
-            background: linear-gradient(to right, #2575fc, #ff6347);
-            -webkit-background-clip: text;
-            color: transparent;
-            font-weight: bold;
+        ul li {
+            margin-bottom: 10px;
         }
 
+        /* Footer */
         footer {
             background: #333;
             color: white;
             text-align: center;
-            padding: 10px;
-            margin-top: 50px;
+            padding: 20px 0;
+            margin-top: 60px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            font-size: 1.1em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            section {
+                padding: 40px 10px;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+        }
+
+        /* Additional Background for Depth */
+        .background {
+            background: rgba(0, 0, 0, 0.4);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            backdrop-filter: blur(15px);
         }
     </style>
 </head>
 <body>
+
+<div class="background"></div>
 
 <header>
     <h1>Terms and Conditions | Facer</h1>
 </header>
 
 <section>
-    <h2 class="highlight">Introduction</h2>
+    <h2>Introduction</h2>
     <p>Welcome to Facer! By accessing and using our website, you agree to comply with and be bound by the following terms and conditions. Please read these terms carefully before using our services.</p>
 
-    <h2 class="highlight">Usage of Services</h2>
+    <h2>Usage of Services</h2>
     <p>You may use Facer to ask questions, post answers, and participate in discussions related to medical knowledge. You are responsible for the content you post and must adhere to our community guidelines.</p>
 
-    <h2 class="highlight">User Responsibilities</h2>
+    <h2>User Responsibilities</h2>
     <p>As a user, you agree to provide accurate, truthful, and respectful contributions. Any inappropriate or offensive content may be removed by the administrators, and repeated violations may result in account suspension.</p>
 
-    <h2 class="highlight">Account Termination</h2>
+    <h2>Account Termination</h2>
     <p>We reserve the right to suspend or terminate your account at our discretion if we believe you have violated our terms and conditions. You can also request account deletion at any time.</p>
 
-    <h2 class="highlight">Limitation of Liability</h2>
+    <h2>Limitation of Liability</h2>
     <p>Facer is not liable for any damages or losses incurred from the use of our platform. We make no warranties about the accuracy of the content provided by users and professionals.</p>
 
-    <h2 class="highlight">Governing Law</h2>
+    <h2>Governing Law</h2>
     <p>These terms and conditions are governed by the laws of the jurisdiction in which Facer operates. Any disputes will be resolved in the appropriate legal venue.</p>
 </section>
 

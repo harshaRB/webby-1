@@ -2,10 +2,21 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
     height: 100vh;
     margin: 0;
+}
+
+header, footer {
+    width: 100%; /* Ensure header and footer span the full width */
+    padding: 20px;
+    text-align: center;
+    background-color: #333;
+    color: white;
+    position: relative;
+    z-index: 10;
 }
 
 .login-container {
@@ -14,6 +25,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px;
+    margin-bottom: 20px; /* Space between login box and footer */
 }
 
 h1 {
