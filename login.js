@@ -1,114 +1,91 @@
-// Function to generate a unique user ID
-function generateUniqueID() {
-    return 'user-' + Math.random().toString(36).substr(2, 9); // Generates a random alphanumeric string
-}
-
-// Function to get the unique user ID from localStorage or generate a new one
-function getUserID() {
-    let userID = localStorage.getItem('userID'); // Try to get the user ID from localStorage
-    
-    if (!userID) {
-        // If there's no ID in localStorage, generate a new one
-        userID = generateUniqueID();
-        localStorage.setItem('userID', userID); // Store the generated ID in localStorage
-    }
-    
-    return userID; // Return the user ID (either existing or newly generated)
-}
-
-// Handle login form submission
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the form from submitting normally
-
-    // Get the user ID from localStorage or generate a new one
-    const userID = getUserID();
-
-    // Show user ID in the UI
-    document.getElementById('userID').textContent = userID;
-
-    // Hide the login form and show the user info
-    document.getElementById('loginForm').classList.add('hidden');
-    document.getElementById('userInfo').classList.remove('hidden');
-});
+// Initialize Supabase Client
+const SUPABASE_URL = "https://wwevvwgdonkknqzgbsoa.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind3ZXZ2d2dkb25ra25xemdic29hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ1MjUwMzgsImV4cCI6MjA1MDEwMTAzOH0.VskKxKSSewdZmatXYQLB6vsLZP0IsZMfz_pVVpBHky8";
+const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 
-
-
-
-
-
-// Function to generate a unique user ID
-function generateUniqueID() {
-    return 'user-' + Math.random().toString(36).substr(2, 9); // Generates a random alphanumeric string
-}
-
-// Function to get the unique user ID from localStorage or generate a new one
-function getUserID() {
-    let userID = localStorage.getItem('userID'); // Try to get the user ID from localStorage
-    
-    if (!userID) {
-        // If there's no ID in localStorage, generate a new one
-        userID = generateUniqueID();
-        localStorage.setItem('userID', userID); // Store the generated ID in localStorage
-    }
-    
-    return userID; // Return the user ID (either existing or newly generated)
-}
-
-// Function to get and display bookmarks for the user
-function displayBookmarks(userID) {
-    const bookmarksKey = `bookmarks-${userID}`;
-    const bookmarks = JSON.parse(localStorage.getItem(bookmarksKey)) || []; // Get bookmarks or empty array
-    
-    const bookmarksList = document.getElementById('bookmarks');
-    bookmarksList.innerHTML = ''; // Clear current list
-
-    if (bookmarks.length > 0) {
-        bookmarks.forEach(bookmark => {
-            const li = document.createElement('li');
-            li.textContent = bookmark; // Assuming bookmark is a question title or URL
-            bookmarksList.appendChild(li);
-        });
+// Check User Session on Page Load
+supabase.auth.getSession().then(({ data: { session } }) => {
+    if (session) {
+      loadUserProfile(session.user);
     } else {
-        bookmarksList.innerHTML = '<li>No bookmarks yet.</li>';
+      showLoginForm();
     }
-}
+  });
+  
 
-// Handle login form submission
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the form from submitting normally
 
-    // Get the user ID from localStorage or generate a new one
-    const userID = getUserID();
-
-    // Show user ID in the UI
-    document.getElementById('userID').textContent = userID;
-
-    // Hide the login form and show the user info
-    document.getElementById('loginForm').classList.add('hidden');
-    document.getElementById('userInfo').classList.remove('hidden');
-    
-    // Display bookmarks after login
-    displayBookmarks(userID);
-});
-
-// Handle showing bookmarks
-document.getElementById('showBookmarks').addEventListener('click', function() {
-    const userID = getUserID(); // Get the current user ID
-    const bookmarksList = document.getElementById('bookmarksList');
-    bookmarksList.classList.toggle('hidden'); // Toggle visibility of bookmarks list
-    displayBookmarks(userID); // Display bookmarks
-});
-
-// Function to add a bookmark (this can be called elsewhere in the app)
-function addBookmark(questionTitle) {
-    const userID = getUserID();
-    const bookmarksKey = `bookmarks-${userID}`;
-    const bookmarks = JSON.parse(localStorage.getItem(bookmarksKey)) || [];
-    
-    // Add the new bookmark to the list (avoid duplicates)
-    if (!bookmarks.includes(questionTitle)) {
-        bookmarks.push(questionTitle);
-        localStorage.setItem(bookmarksKey, JSON.stringify(bookmarks)); // Store the updated list in localStorage
+// Handle Sign-Up
+document.getElementById("signup").addEventListener("submit", async (e) => {
+    e.preventDefault();
+  
+    const email = document.getElementById("signup-email").value;
+    const password = document.getElementById("signup-password").value;
+  
+    const { user, error } = await supabase.auth.signUp({
+      email: email,
+      password: password,
+    });
+  
+    if (error) {
+      alert("Sign-Up Error: " + error.message);
+    } else {
+      alert("Sign-Up Successful! Please check your email to verify your account.");
     }
-}
+  });
+  
+  // Handle Login
+  document.getElementById("login").addEventListener("submit", async (e) => {
+    e.preventDefault();
+  
+    const email = document.getElementById("login-email").value;
+    const password = document.getElementById("login-password").value;
+  
+    const { session, error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password,
+    });
+  
+    if (error) {
+      alert("Login Error: " + error.message);
+    } else {
+      alert("Login Successful!");
+      loadUserProfile(session.user);
+    }
+  });
+  
+  // Handle Logout
+  document.getElementById("logout").addEventListener("click", async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      alert("Logout Error: " + error.message);
+    } else {
+      alert("Logged Out Successfully!");
+      showLoginForm();
+    }
+  });
+  
+  // Load User Profile
+  function loadUserProfile(user) {
+    document.getElementById("login-form").style.display = "none";
+    document.getElementById("signup-form").style.display = "none";
+    document.getElementById("profile").style.display = "block";
+    document.getElementById("user-email").innerText = user.email;
+  }
+  
+  // Show Login Form
+  function showLoginForm() {
+    document.getElementById("profile").style.display = "none";
+    document.getElementById("signup-form").style.display = "none";
+    document.getElementById("login-form").style.display = "block";
+  }
+  
+
+
+  supabase.auth.getSession().then(({ data: { session } }) => {
+    if (!session) {
+      alert("Please log in to access this page.");
+      window.location.href = "login.html"; // Redirect to login page
+    }
+  });
+  
