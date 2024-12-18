@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Question / Answer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Submit Your Question / Answer</h1>
+  </header>
+
+  <main>
+    <form id="submitForm">
+      <label for="subject">Select Subject:</label>
+      <select id="subject" name="subject" required>
+        <!-- Will populate with subjects from Supabase -->
+      </select>
+
+      <label for="question">Question:</label>
+      <input type="text" id="question" name="question" required />
+
+      <label for="answer">Your Answer:</label>
+      <textarea id="answer" name="answer"></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </main>
+
+  <script src="submit-question-answer.js"></script>
+</body>
+</html>
