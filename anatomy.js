@@ -101,11 +101,3 @@ async function addExampleQuestions() {
   // Call the function to add answers
   addExampleAnswers();
   
-
-
-
-
-  // Initialize Supabase
-const supabaseUrl = 'https://wwevvwgdonkknqzgbsoa.supabase.co'; // Replace with your URL
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind3ZXZ2d2dkb25ra25xemdic29hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ1MjUwMzgsImV4cCI6MjA1MDEwMTAzOH0.VskKxKSSewdZmatXYQLB6vsLZP0IsZMfz_pVVpBHky8'; // Replace with your Anon Key
-const supabase = supabase.createClient(supabaseUrl, supabaseAnonKey);
